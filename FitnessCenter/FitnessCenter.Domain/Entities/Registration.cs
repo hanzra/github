@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitnessCenter.Domain.Entities.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,17 +10,16 @@ namespace FitnessCenter.Domain.Entities
     public class Registration
     {
         [Key]
-        public int RegistrationID { get; set; }
-        [ForeignKey("Schedule")]
+        public int RegistrationID { get; set; }        
         public int ScheduleID { get; set; }
-        [ForeignKey("User")]
-        public virtual string UserId { get; set; }
+        [ForeignKey("AppUser")]
+        public string UserID { get; set; }
         public int WaitNumber { get; set; }
         public DateTime DateTime { get; set; }
-        public RegisrtationStatus status { get; set; }
+        public RegisrtationStatus Status { get; set; }
         [Required]
         public virtual Schedule Schedule { get; set; }
-        public virtual AppUser User { get; set; }
+        public virtual AppUser AppUser { get; set; }
     }
 
     public enum RegisrtationStatus

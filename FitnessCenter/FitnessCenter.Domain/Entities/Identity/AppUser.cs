@@ -7,17 +7,14 @@ using System.Text;
 
 namespace FitnessCenter.Domain.Entities.Identity
 {
-    public class AppUser
-    {
-        public class User : IdentityUser
+        public class AppUser : IdentityUser
         {
+       
             [Required]
             public string FirstName { get; set; }
             [Required]
             public string LastName { get; set; }
 
-            [ForeignKey("RegistrationID")]
             public virtual ICollection<Registration> Registration { get; set; }
         }
-    }
 }
